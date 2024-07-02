@@ -24,7 +24,7 @@ public class CarServiceImpl implements CarService {
         Car newCar = Car.builder()
                 .name(req.getName())
                 .brand(brand)
-                .available(req.getAvailable())
+                .available(true)
                 .price(req.getPrice())
                 .build();
 

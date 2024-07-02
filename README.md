@@ -5,6 +5,14 @@
 - Levi Indrajaya Sutantio
 - Randy
 
+## Nice Feature to add
+- validate if user have enough money to rent
+- validate if rent is already completed
+- validate if car is already rented
+- delete all cars if related brand is deleted
+- set related user rent to null if user is deleted
+- set related car rent to null if car is deleted
+
 ## How to run this project
 
 Go to src/main/resources/application.properties and copy paste below replace {{something}} with your config in your
