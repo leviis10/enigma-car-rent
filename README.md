@@ -44,3 +44,54 @@ spring.jpa.show-sql=true
 
 - DELETE
   ![user-delete.png](images%2Fuser-delete.png)
+
+### CRUD Brand
+
+- CREATE
+  ![brand-create.png](images%2Fbrand-create.png)
+
+- READ ALL
+  ![brand-getall.png](images%2Fbrand-getall.png)
+
+- READ
+  ![brand-get-by-id.png](images%2Fbrand-get-by-id.png)
+
+- UPDATE
+  ![brand-update-by-id.png](images%2Fbrand-update-by-id.png)
+
+- DELETE
+![brand-delete-by-id.png](images%2Fbrand-delete-by-id.png)
+
+### CRUD Car
+
+- CREATE
+  ![car-create.png](images%2Fcar-create.png)
+
+- READ ALL
+![car-getall.png](images%2Fcar-getall.png)
+
+- READ
+![car-get-by-id.png](images%2Fcar-get-by-id.png)
+
+- UPDATE
+![car-update-by-id.png](images%2Fcar-update-by-id.png)
+
+- DELETE
+![car-delete.png](images%2Fcar-delete.png)
+- 
+### CRUD Rent
+
+- CREATE
+
+
+- READ ALL
+
+
+- READ
+
+
+- UPDATE
+
+
+- DELETE
+  
