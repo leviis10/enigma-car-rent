@@ -6,6 +6,7 @@
 - Randy
 
 ## Nice Feature to add
+
 - validate if user have enough money to rent
 - validate if rent is already completed
 - validate if car is already rented
@@ -36,7 +37,7 @@ spring.jpa.show-sql=true
 
 ## Docs
 
-### CRUD Users
+### Users
 
 - CREATE
   ![user-create.png](images%2Fuser-create.png)
@@ -53,7 +54,10 @@ spring.jpa.show-sql=true
 - DELETE
   ![user-delete.png](images%2Fuser-delete.png)
 
-### CRUD Brand
+- TOPUP
+  ![user-topup.png](images%2Fuser-topup.png)
+
+### Brand
 
 - CREATE
   ![brand-create.png](images%2Fbrand-create.png)
@@ -70,7 +74,7 @@ spring.jpa.show-sql=true
 - DELETE
   ![brand-delete-by-id.png](images%2Fbrand-delete-by-id.png)
 
-### CRUD Car
+### Car
 
 - CREATE
   ![car-create.png](images%2Fcar-create.png)
@@ -86,9 +90,8 @@ spring.jpa.show-sql=true
 
 - DELETE
   ![car-delete.png](images%2Fcar-delete.png)
--
 
-### CRUD Rent
+### Rent
 
 - CREATE
   ![rent-create.png](images%2Frent-create.png)
@@ -103,5 +106,8 @@ spring.jpa.show-sql=true
   ![rent-update-by-id.png](images%2Frent-update-by-id.png)
 
 - DELETE
-- ![rent-delete-by-id.png](images%2Frent-delete-by-id.png)
+  ![rent-delete-by-id.png](images%2Frent-delete-by-id.png)
+
+- RETURN CAR
+  ![rent-return-car.png](images%2Frent-return-car.png)
   
