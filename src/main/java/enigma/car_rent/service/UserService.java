@@ -15,4 +15,6 @@ public interface UserService {
     User updateById(Integer id, UserDTO updatedUser);
 
     void deleteById(Integer id);
+
+    User topup(Integer id, Integer amount);
 }

@@ -3,6 +3,7 @@ package enigma.car_rent.service.implementation;
 import enigma.car_rent.model.User;
 import enigma.car_rent.repository.UserRepository;
 import enigma.car_rent.service.UserService;
+import enigma.car_rent.utils.dto.UserConvert;
 import enigma.car_rent.utils.dto.UserDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteById(Integer id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public User topup(Integer id, Integer amount) {
+        User foundUser = getById(id);
+        foundUser.setBalance(foundUser.getBalance() + amount);
+        return updateById(id, UserConvert.toDTO(foundUser));
     }
 }

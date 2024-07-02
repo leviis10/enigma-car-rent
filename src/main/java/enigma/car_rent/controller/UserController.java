@@ -36,6 +36,11 @@ public class UserController {
         return userService.updateById(id, updatedUser);
     }
 
+    @PutMapping("/{id}/topup")
+    public User topup(@PathVariable Integer id, @RequestParam Integer amount) {
+        return userService.topup(id, amount);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Integer id) {
