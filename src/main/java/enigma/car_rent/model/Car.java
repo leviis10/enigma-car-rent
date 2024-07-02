@@ -21,5 +21,5 @@ public class Car {
     private Brand brand;
 
     private Boolean available;
-    private String price;
+    private Integer price;
 }

@@ -39,7 +39,7 @@ public class BrandController {
     }
 
     @DeleteMapping("/{id}")
-    public String Delete(@PathVariable Integer id) {
+    public String delete(@PathVariable Integer id) {
         brandService.deleteById(id);
         return "Success Delete";
     }
