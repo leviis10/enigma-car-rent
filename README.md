@@ -60,7 +60,7 @@ spring.jpa.show-sql=true
   ![brand-update-by-id.png](images%2Fbrand-update-by-id.png)
 
 - DELETE
-![brand-delete-by-id.png](images%2Fbrand-delete-by-id.png)
+  ![brand-delete-by-id.png](images%2Fbrand-delete-by-id.png)
 
 ### CRUD Car
 
@@ -68,30 +68,32 @@ spring.jpa.show-sql=true
   ![car-create.png](images%2Fcar-create.png)
 
 - READ ALL
-![car-getall.png](images%2Fcar-getall.png)
+  ![car-getall.png](images%2Fcar-getall.png)
 
 - READ
-![car-get-by-id.png](images%2Fcar-get-by-id.png)
+  ![car-get-by-id.png](images%2Fcar-get-by-id.png)
 
 - UPDATE
-![car-update-by-id.png](images%2Fcar-update-by-id.png)
+  ![car-update-by-id.png](images%2Fcar-update-by-id.png)
 
 - DELETE
-![car-delete.png](images%2Fcar-delete.png)
-- 
+  ![car-delete.png](images%2Fcar-delete.png)
+-
+
 ### CRUD Rent
 
 - CREATE
-
+  ![rent-create.png](images%2Frent-create.png)
 
 - READ ALL
-
+  ![rent-getall.png](images%2Frent-getall.png)
 
 - READ
-
+  ![rent-get-by-id.png](images%2Frent-get-by-id.png)
 
 - UPDATE
-
+  ![rent-update-by-id.png](images%2Frent-update-by-id.png)
 
 - DELETE
+- ![rent-delete-by-id.png](images%2Frent-delete-by-id.png)
   
