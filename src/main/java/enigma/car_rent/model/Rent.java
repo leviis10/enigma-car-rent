@@ -1,5 +1,6 @@
 package enigma.car_rent.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,10 +22,12 @@ public class Rent {
 
     @ManyToOne
     @JoinColumn(name = "car_id")
+    @JsonIgnore
     private Car car;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
     @Temporal(TemporalType.TIMESTAMP)

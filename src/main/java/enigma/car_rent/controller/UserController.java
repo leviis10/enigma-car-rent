@@ -3,9 +3,7 @@ package enigma.car_rent.controller;
 import enigma.car_rent.model.User;
 import enigma.car_rent.service.UserService;
 import enigma.car_rent.utils.dto.UserDTO;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

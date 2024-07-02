@@ -1,7 +1,11 @@
 package enigma.car_rent.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="cars")
@@ -18,8 +22,12 @@ public class Car {
 
     @ManyToOne
     @JoinColumn(name="brand_id")
+    @JsonIgnore
     private Brand brand;
 
     private Boolean available;
     private Integer price;
+
+    @OneToMany(mappedBy = "car")
+    private List<Rent> rents = new ArrayList<>();
 }
