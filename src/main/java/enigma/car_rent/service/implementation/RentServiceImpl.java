@@ -30,7 +30,7 @@ public class RentServiceImpl implements RentService {
         carService.updateById(car.getId(), CarConvert.toDTO(car));
 
         User user = userService.getById(newRentDTO.getUserId());
-        user.setBalance(user.getBalance() - newRentDTO.getPrice());
+        user.setBalance(user.getBalance() - car.getPrice());
         userService.updateById(user.getId(), UserConvert.toDTO(user));
 
         Rent newRent = Rent.builder()
@@ -39,7 +39,7 @@ public class RentServiceImpl implements RentService {
                 .user(user)
                 .startedAt(new Date())
                 .endsAt(newRentDTO.getEndsAt())
-                .price(newRentDTO.getPrice())
+                .price(car.getPrice())
                 .build();
 
         return rentRepository.save(newRent);
