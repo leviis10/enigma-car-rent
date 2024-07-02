@@ -1,9 +1,7 @@
 package enigma.car_rent.controller;
 
 import enigma.car_rent.model.Brand;
-import enigma.car_rent.model.Car;
 import enigma.car_rent.service.BrandService;
-import enigma.car_rent.service.CarService;
 import enigma.car_rent.utils.dto.BrandDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

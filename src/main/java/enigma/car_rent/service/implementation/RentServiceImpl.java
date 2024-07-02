@@ -7,10 +7,13 @@ import enigma.car_rent.repository.RentRepository;
 import enigma.car_rent.service.CarService;
 import enigma.car_rent.service.RentService;
 import enigma.car_rent.service.UserService;
+import enigma.car_rent.utils.dto.CarConvert;
 import enigma.car_rent.utils.dto.RentDTO;
+import enigma.car_rent.utils.dto.UserConvert;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -23,13 +26,18 @@ public class RentServiceImpl implements RentService {
     @Override
     public Rent create(RentDTO newRentDTO) {
         Car car = carService.getById(newRentDTO.getCarId());
+        car.setAvailable(false);
+        carService.updateById(car.getId(), CarConvert.toDTO(car));
+
         User user = userService.getById(newRentDTO.getUserId());
+        user.setBalance(user.getBalance() - newRentDTO.getPrice());
+        userService.updateById(user.getId(), UserConvert.toDTO(user));
 
         Rent newRent = Rent.builder()
-                .completed(newRentDTO.getCompleted())
+                .completed(false)
                 .car(car)
                 .user(user)
-                .startedAt(newRentDTO.getStartedAt())
+                .startedAt(new Date())
                 .endsAt(newRentDTO.getEndsAt())
                 .price(newRentDTO.getPrice())
                 .build();

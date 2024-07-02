@@ -2,7 +2,6 @@ package enigma.car_rent.service.implementation;
 
 import enigma.car_rent.model.Brand;
 import enigma.car_rent.model.Car;
-import enigma.car_rent.repository.BrandRepository;
 import enigma.car_rent.repository.CarRepository;
 import enigma.car_rent.service.BrandService;
 import enigma.car_rent.service.CarService;

@@ -1,14 +1,10 @@
 package enigma.car_rent.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
-@Table(name="cars")
+@Table(name = "cars")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -21,13 +17,9 @@ public class Car {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name="brand_id")
-    @JsonIgnore
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
     private Boolean available;
     private Integer price;
-
-    @OneToMany(mappedBy = "car")
-    private List<Rent> rents = new ArrayList<>();
 }

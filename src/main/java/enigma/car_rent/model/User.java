@@ -3,9 +3,6 @@ package enigma.car_rent.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Table(name = "users")
 @Getter
@@ -20,7 +17,4 @@ public class User {
 
     private String name;
     private Integer balance;
-
-    @OneToMany(mappedBy = "user")
-    private List<Rent> rents = new ArrayList<>();
 }
