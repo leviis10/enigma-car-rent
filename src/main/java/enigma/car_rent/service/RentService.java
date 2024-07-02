@@ -15,4 +15,6 @@ public interface RentService {
     Rent updateById(Integer id, RentDTO updatedRent);
 
     void deleteById(Integer id);
+
+    Rent carReturn(Integer id);
 }

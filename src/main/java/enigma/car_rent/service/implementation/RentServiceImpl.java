@@ -8,6 +8,7 @@ import enigma.car_rent.service.CarService;
 import enigma.car_rent.service.RentService;
 import enigma.car_rent.service.UserService;
 import enigma.car_rent.utils.dto.CarConvert;
+import enigma.car_rent.utils.dto.RentConvert;
 import enigma.car_rent.utils.dto.RentDTO;
 import enigma.car_rent.utils.dto.UserConvert;
 import lombok.RequiredArgsConstructor;
@@ -74,5 +75,26 @@ public class RentServiceImpl implements RentService {
     @Override
     public void deleteById(Integer id) {
         rentRepository.deleteById(id);
+    }
+
+    @Override
+    public Rent carReturn(Integer id) {
+        Rent foundRent = getById(id);
+        foundRent.setCompleted(true);
+        updateById(id, RentConvert.toDTO(foundRent));
+
+        Car foundCar = carService.getById(foundRent.getCar().getId());
+        foundCar.setAvailable(true);
+        carService.updateById(foundCar.getId(), CarConvert.toDTO(foundCar));
+        foundRent.setCar(foundCar);
+
+        if (new Date().after(foundRent.getEndsAt())) {
+            User foundUser = userService.getById(foundRent.getUser().getId());
+            foundUser.setBalance(foundUser.getBalance() - (foundRent.getPrice() * 10 / 100));
+            userService.updateById(foundUser.getId(), UserConvert.toDTO(foundUser));
+            foundRent.setUser(foundUser);
+        }
+
+        return foundRent;
     }
 }

@@ -42,4 +42,9 @@ public class RentController {
     public void deleteById(@PathVariable Integer id) {
         rentService.deleteById(id);
     }
+
+    @PutMapping("/{id}/return")
+    public Rent carReturn(@PathVariable Integer id) {
+        return rentService.carReturn(id);
+    }
 }
