@@ -5,9 +5,11 @@ import enigma.car_rent.repository.UserRepository;
 import enigma.car_rent.service.UserService;
 import enigma.car_rent.utils.dto.UserConvert;
 import enigma.car_rent.utils.dto.UserDTO;
+import enigma.car_rent.utils.dto.UserSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,8 +26,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Page<User> getAll(Pageable pageable) {
-        return userRepository.findAll(pageable);
+    public Page<User> getAll(Pageable pageable, String name) {
+        Specification<User> spec = UserSpecification.getSpecification(name);
+        return userRepository.findAll(spec, pageable);
     }
 
     @Override
