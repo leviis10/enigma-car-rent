@@ -6,9 +6,11 @@ import enigma.car_rent.repository.CarRepository;
 import enigma.car_rent.service.BrandService;
 import enigma.car_rent.service.CarService;
 import enigma.car_rent.utils.dto.CarDTO;
+import enigma.car_rent.utils.dto.CarSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -32,8 +34,9 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Page<Car> getAll(Pageable pageable) {
-        return carRepository.findAll(pageable);
+    public Page<Car> getAll(Pageable pageable, String name, Boolean available) {
+        Specification<Car> spec = CarSpecification.getSpecification(name, available);
+        return carRepository.findAll(spec, pageable);
     }
 
     @Override

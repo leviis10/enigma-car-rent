@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 public interface CarService {
     Car create(CarDTO req);
 
-    Page<Car> getAll(Pageable pageable);
+    Page<Car> getAll(Pageable pageable, String name, Boolean available);
 
     Car getById(Integer id);
 

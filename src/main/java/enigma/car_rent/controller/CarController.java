@@ -27,8 +27,12 @@ public class CarController {
     }
 
     @GetMapping
-    public ResponseEntity<?> getAll(@PageableDefault Pageable pageable) {
-        return Response.renderJSON(new PageResponse<>(carService.getAll(pageable)));
+    public ResponseEntity<?> getAll(
+            @PageableDefault Pageable pageable,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) Boolean available
+    ) {
+        return Response.renderJSON(new PageResponse<>(carService.getAll(pageable, name, available)));
     }
 
     @GetMapping("/{id}")
