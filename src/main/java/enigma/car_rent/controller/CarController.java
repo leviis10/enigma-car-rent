@@ -1,15 +1,15 @@
 package enigma.car_rent.controller;
 
-import enigma.car_rent.model.Car;
 import enigma.car_rent.service.CarService;
 import enigma.car_rent.utils.dto.CarDTO;
+import enigma.car_rent.utils.dto.PageResponse;
 import enigma.car_rent.utils.dto.Response;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/cars")
@@ -27,8 +27,8 @@ public class CarController {
     }
 
     @GetMapping
-    public List<Car> getAll() {
-        return carService.getAll();
+    public ResponseEntity<?> getAll(@PageableDefault Pageable pageable) {
+        return Response.renderJSON(new PageResponse<>(carService.getAll(pageable)));
     }
 
     @GetMapping("/{id}")

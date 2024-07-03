@@ -2,13 +2,13 @@ package enigma.car_rent.service;
 
 import enigma.car_rent.model.Rent;
 import enigma.car_rent.utils.dto.RentDTO;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface RentService {
     Rent create(RentDTO newRent);
 
-    List<Rent> getAll();
+    Page<Rent> getAll(Pageable pageable);
 
     Rent getById(Integer id);
 

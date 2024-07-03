@@ -12,10 +12,11 @@ import enigma.car_rent.utils.dto.RentConvert;
 import enigma.car_rent.utils.dto.RentDTO;
 import enigma.car_rent.utils.dto.UserConvert;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -47,8 +48,8 @@ public class RentServiceImpl implements RentService {
     }
 
     @Override
-    public List<Rent> getAll() {
-        return rentRepository.findAll();
+    public Page<Rent> getAll(Pageable pageable) {
+        return rentRepository.findAll(pageable);
     }
 
     @Override

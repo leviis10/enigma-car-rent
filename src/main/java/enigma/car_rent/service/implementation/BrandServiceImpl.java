@@ -5,9 +5,9 @@ import enigma.car_rent.repository.BrandRepository;
 import enigma.car_rent.service.BrandService;
 import enigma.car_rent.utils.dto.BrandDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -22,8 +22,8 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public List<Brand> getAll() {
-        return brandRepository.findAll();
+    public Page<Brand> getAll(Pageable pageable) {
+        return brandRepository.findAll(pageable);
     }
 
     @Override
