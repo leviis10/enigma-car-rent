@@ -3,7 +3,10 @@ package enigma.car_rent.controller;
 import enigma.car_rent.model.Car;
 import enigma.car_rent.service.CarService;
 import enigma.car_rent.utils.dto.CarDTO;
+import enigma.car_rent.utils.dto.Response;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +18,12 @@ public class CarController {
     private final CarService carService;
 
     @PostMapping
-    public Car create(@RequestBody CarDTO request) {
-        return carService.create(request);
+    public ResponseEntity<?> create(@RequestBody CarDTO request) {
+        return Response.renderJSON(
+                carService.create(request),
+                "New Car Record Created",
+                HttpStatus.CREATED
+        );
     }
 
     @GetMapping
@@ -25,13 +32,13 @@ public class CarController {
     }
 
     @GetMapping("/{id}")
-    public Car getById(@PathVariable Integer id) {
-        return carService.getById(id);
+    public ResponseEntity<?> getById(@PathVariable Integer id) {
+        return Response.renderJSON(carService.getById(id));
     }
 
     @PutMapping("/{id}")
-    public Car update(@PathVariable Integer id, @RequestBody CarDTO request) {
-        return carService.updateById(id, request);
+    public ResponseEntity<?> update(@PathVariable Integer id, @RequestBody CarDTO request) {
+        return Response.renderJSON(carService.updateById(id, request));
     }
 
     @DeleteMapping("/{id}")

@@ -12,4 +12,12 @@ public class Response {
                 .build();
         return ResponseEntity.status(httpStatus).body(response);
     }
+
+    public static <T> ResponseEntity<?> renderJSON(T data, String message) {
+        return renderJSON(data, message, HttpStatus.OK);
+    }
+
+    public static <T> ResponseEntity<?> renderJSON(T data) {
+        return renderJSON(data, "Success");
+    }
 }

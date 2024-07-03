@@ -14,7 +14,6 @@
 - set related user rent to null if user is deleted
 - set related car rent to null if car is deleted
 - add pagination on all model
-- add custom response
 
 ## How to run this project
 

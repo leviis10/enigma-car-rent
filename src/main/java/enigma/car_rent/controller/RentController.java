@@ -4,8 +4,10 @@ package enigma.car_rent.controller;
 import enigma.car_rent.model.Rent;
 import enigma.car_rent.service.RentService;
 import enigma.car_rent.utils.dto.RentDTO;
+import enigma.car_rent.utils.dto.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,9 +19,12 @@ public class RentController {
     private final RentService rentService;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Rent create(@RequestBody RentDTO newRent) {
-        return rentService.create(newRent);
+    public ResponseEntity<?> create(@RequestBody RentDTO newRent) {
+        return Response.renderJSON(
+                rentService.create(newRent),
+                "New Rent Record Created",
+                HttpStatus.CREATED
+        );
     }
 
     @GetMapping
@@ -28,13 +33,13 @@ public class RentController {
     }
 
     @GetMapping("/{id}")
-    public Rent getById(@PathVariable Integer id) {
-        return rentService.getById(id);
+    public ResponseEntity<?> getById(@PathVariable Integer id) {
+        return Response.renderJSON(rentService.getById(id));
     }
 
     @PutMapping("/{id}")
-    public Rent updateById(@PathVariable Integer id, @RequestBody RentDTO updatedRent) {
-        return rentService.updateById(id, updatedRent);
+    public ResponseEntity<?> updateById(@PathVariable Integer id, @RequestBody RentDTO updatedRent) {
+        return Response.renderJSON(rentService.updateById(id, updatedRent));
     }
 
     @DeleteMapping("/{id}")
@@ -44,7 +49,7 @@ public class RentController {
     }
 
     @PutMapping("/{id}/return")
-    public Rent carReturn(@PathVariable Integer id) {
-        return rentService.carReturn(id);
+    public ResponseEntity<?> carReturn(@PathVariable Integer id) {
+        return Response.renderJSON(rentService.carReturn(id));
     }
 }
