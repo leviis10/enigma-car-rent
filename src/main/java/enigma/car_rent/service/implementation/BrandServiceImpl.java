@@ -4,10 +4,14 @@ import enigma.car_rent.model.Brand;
 import enigma.car_rent.repository.BrandRepository;
 import enigma.car_rent.service.BrandService;
 import enigma.car_rent.utils.dto.BrandDTO;
+import enigma.car_rent.utils.dto.BrandSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,8 +26,9 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public Page<Brand> getAll(Pageable pageable) {
-        return brandRepository.findAll(pageable);
+    public Page<Brand> getAll(String name, Pageable pageable) {
+        Specification<Brand> spec = BrandSpecification.getSpecification(name);
+        return brandRepository.findAll(spec, pageable);
     }
 
     @Override

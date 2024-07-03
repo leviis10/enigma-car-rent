@@ -27,8 +27,11 @@ public class BrandController {
     }
 
     @GetMapping
-    public ResponseEntity<?> getAll(@PageableDefault Pageable pageable) {
-        return Response.renderJSON(new PageResponse<>(brandService.getAll(pageable)));
+    public ResponseEntity<?> getAll(
+            @PageableDefault Pageable pageable,
+            @RequestParam(required = false) String name
+    ) {
+        return Response.renderJSON(new PageResponse<>(brandService.getAll(name, pageable)));
     }
 
     @GetMapping("/{id}")
