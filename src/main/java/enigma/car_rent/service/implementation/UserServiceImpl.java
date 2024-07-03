@@ -5,7 +5,7 @@ import enigma.car_rent.repository.UserRepository;
 import enigma.car_rent.service.UserService;
 import enigma.car_rent.utils.dto.UserConvert;
 import enigma.car_rent.utils.dto.UserDTO;
-import enigma.car_rent.utils.dto.UserSpecification;
+import enigma.car_rent.utils.specification.UserSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     public User create(UserDTO newUser) {
         return userRepository.save(User.builder()
                 .name(newUser.getName())
-                .balance(newUser.getBalance())
+                .balance(newUser.getBalance() > 0 ? newUser.getBalance() : 0)
                 .build());
     }
 
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getById(Integer id) {
-        return userRepository.findById(id).orElse(null);
+        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
     }
 
     @Override

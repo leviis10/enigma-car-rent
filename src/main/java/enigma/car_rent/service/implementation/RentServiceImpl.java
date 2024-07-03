@@ -54,7 +54,7 @@ public class RentServiceImpl implements RentService {
 
     @Override
     public Rent getById(Integer id) {
-        return rentRepository.findById(id).orElse(null);
+        return rentRepository.findById(id).orElseThrow(() -> new RuntimeException("Rent not found"));
     }
 
     @Override

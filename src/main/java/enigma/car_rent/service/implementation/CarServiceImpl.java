@@ -6,7 +6,7 @@ import enigma.car_rent.repository.CarRepository;
 import enigma.car_rent.service.BrandService;
 import enigma.car_rent.service.CarService;
 import enigma.car_rent.utils.dto.CarDTO;
-import enigma.car_rent.utils.dto.CarSpecification;
+import enigma.car_rent.utils.specification.CarSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -41,7 +41,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car getById(Integer id) {
-        return carRepository.findById(id).orElse(null);
+        return carRepository.findById(id).orElseThrow(() -> new RuntimeException("Car Not Found"));
     }
 
     @Override

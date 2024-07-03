@@ -1,4 +1,4 @@
-package enigma.car_rent.utils.dto;
+package enigma.car_rent.utils.specification;
 
 import enigma.car_rent.model.Car;
 import jakarta.persistence.criteria.Predicate;

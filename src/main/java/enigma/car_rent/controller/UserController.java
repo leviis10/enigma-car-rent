@@ -1,14 +1,16 @@
 package enigma.car_rent.controller;
 
 import enigma.car_rent.service.UserService;
-import enigma.car_rent.utils.dto.PageResponse;
-import enigma.car_rent.utils.dto.Response;
+import enigma.car_rent.utils.response.PageResponse;
+import enigma.car_rent.utils.response.Response;
 import enigma.car_rent.utils.dto.UserDTO;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,7 +20,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody UserDTO newUser) {
+    @Validated
+    public ResponseEntity<?> create(@Valid @RequestBody UserDTO newUser) {
         return Response.renderJSON(
                 userService.create(newUser),
                 "New User Created",

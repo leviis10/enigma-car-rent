@@ -1,7 +1,10 @@
-package enigma.car_rent.utils.dto;
+package enigma.car_rent.utils.response;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Response {
     public static <T> ResponseEntity<?> renderJSON(T data, String message, HttpStatus httpStatus) {

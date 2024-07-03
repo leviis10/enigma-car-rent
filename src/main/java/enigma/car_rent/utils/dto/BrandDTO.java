@@ -1,5 +1,6 @@
 package enigma.car_rent.utils.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Getter
@@ -8,5 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BrandDTO {
+    @NotBlank(message = "Brand name cannot be blank")
     private String name;
 }

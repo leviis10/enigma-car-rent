@@ -1,4 +1,4 @@
-package enigma.car_rent.utils.dto;
+package enigma.car_rent.utils.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

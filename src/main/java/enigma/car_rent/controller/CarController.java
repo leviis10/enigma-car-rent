@@ -2,13 +2,15 @@ package enigma.car_rent.controller;
 
 import enigma.car_rent.service.CarService;
 import enigma.car_rent.utils.dto.CarDTO;
-import enigma.car_rent.utils.dto.PageResponse;
-import enigma.car_rent.utils.dto.Response;
+import enigma.car_rent.utils.response.PageResponse;
+import enigma.car_rent.utils.response.Response;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,7 +20,8 @@ public class CarController {
     private final CarService carService;
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody CarDTO request) {
+    @Validated
+    public ResponseEntity<?> create(@Valid @RequestBody CarDTO request) {
         return Response.renderJSON(
                 carService.create(request),
                 "New Car Record Created",
