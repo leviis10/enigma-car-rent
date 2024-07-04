@@ -27,10 +27,8 @@ server.port=8080
 spring.datasource.username={{dbUsername}}
 spring.datasource.password={{dbPassword}}
 spring.datasource.url=jdbc:postgresql://localhost:5432/{{dbName}}
-spring.datasource.driver-class-name=org.postgresql.Driver
 
 # JPA Config
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
@@ -44,6 +42,9 @@ spring.jpa.show-sql=true
 
 - READ ALL
   ![user-getall.png](images%2Fuser-getall.png)
+
+- READ ALL BY NAME
+  ![user-get-all-by-name.png](images%2Fuser-get-all-by-name.png)
 
 - READ
   ![user-get-by-id.png](images%2Fuser-get-by-id.png)
@@ -67,6 +68,9 @@ spring.jpa.show-sql=true
 
 - READ
   ![brand-get-by-id.png](images%2Fbrand-get-by-id.png)
+
+- READ ALL BY NAME
+  ![brand-get-all-by-name.png](images%2Fbrand-get-all-by-name.png)
 
 - UPDATE
   ![brand-update-by-id.png](images%2Fbrand-update-by-id.png)
@@ -98,6 +102,9 @@ spring.jpa.show-sql=true
 
 - READ ALL
   ![rent-getall.png](images%2Frent-getall.png)
+
+- READ ALL BY NAME AND AVAILABILITY
+  ![car-get-all-by-name-and-availability.png](images%2Fcar-get-all-by-name-and-availability.png)
 
 - READ
   ![rent-get-by-id.png](images%2Frent-get-by-id.png)

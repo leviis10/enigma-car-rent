@@ -23,4 +23,13 @@ public class Response {
     public static <T> ResponseEntity<?> renderJSON(T data) {
         return renderJSON(data, "Success");
     }
+
+    public static <T> ResponseEntity<?> renderError(String message, HttpStatus httpStatus, List<T> errors) {
+        WebResponseError<T> response = WebResponseError.<T>builder()
+                .message(message)
+                .status(httpStatus.getReasonPhrase())
+                .errors(errors)
+                .build();
+        return ResponseEntity.status(httpStatus).body(response);
+    }
 }

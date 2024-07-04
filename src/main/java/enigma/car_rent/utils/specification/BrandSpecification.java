@@ -12,7 +12,10 @@ public class BrandSpecification {
         return ((root, query, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
             if (name != null && !name.isBlank()) {
-                predicates.add(criteriaBuilder.like(root.get("name"), "%" + name + "%"));
+                predicates.add(criteriaBuilder.like(
+                        criteriaBuilder.lower(root.get("name")),
+                        "%" + name.toLowerCase() + "%"
+                ));
             }
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
         });
